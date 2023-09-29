@@ -6,17 +6,26 @@ import React, {useState} from "react";
 
 const Expenses = (props) => {
 
-  const [filteredYear, setFilteredYear] = useState('2022');
+  const [filteredYear, setFilteredYear] = useState('2023');
+  const [filterInfotext, setFilterInfoText] = useState('2024 & 2025')
 
   const filterChangeHandler = selectedYear =>{
     setFilteredYear(selectedYear);
-    console.log('Expenses.js');
+    if(selectedYear === '2024'){
+      setFilterInfoText('2023 & 2025')
+    }else if(selectedYear === '2025'){
+      setFilterInfoText('2023 & 2024')
+    }else{
+      setFilterInfoText('2024 & 2025')
+    }
+    // console.log('Expenses.js');
     // console.log(selectedYear);
   }
 
   return <div> 
     <Card className="expenses">
     <ExpensesFilter selected={filteredYear} onChangeFilter={filterChangeHandler}/>
+    <p className="yearHiddenInfo">Data for years {filterInfotext} is hidden</p>
     <ExpenseItem
       title={props.items[0].title}
       amount={props.items[0].amount}

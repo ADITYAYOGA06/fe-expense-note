@@ -31,6 +31,7 @@ const Expenses = (props) => {
         <p className="yearHiddenInfo">
           Data for years {filterInfotext} is hidden
         </p>
+        
         {props.items.map((expense) => (
           <ExpenseItem
             title={expense.title}

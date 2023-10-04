@@ -17,9 +17,11 @@ const Expenses = (props) => {
     } else {
       setFilterInfoText("2024 & 2025");
     }
-    // console.log('Expenses.js');
-    // console.log(selectedYear);
   };
+
+  const filteredExpenses = props.items.filter(expense => {
+    return expense.date.getFullYear().toString() === filteredYear;
+  });
 
   return (
     <div>
@@ -32,7 +34,7 @@ const Expenses = (props) => {
           Data for years {filterInfotext} is hidden
         </p>
 
-        {props.items.map((expense) => (
+        {filteredExpenses.map((expense) => (
           <ExpenseItem
             key={expense.id}
             title={expense.title}

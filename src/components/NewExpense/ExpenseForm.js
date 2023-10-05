@@ -7,51 +7,19 @@ const ExpenseForm = (props) => {
   const [enteredAmount, setEnteredAmount] = useState("");
   const [enteredDate, setEnteredDate] = useState("");
 
-  //UseState secara bersamaan
-  // const [userInput, setUserInput] = useState({
-  //     enteredTitle: '',
-  //     enteredAmount: '',
-  //     enteredDate: ''
-  // })
-
   //Fungsi Handler secara terpisah
   const titleChangeHandler = (event) => {
-    setEnteredTitle(event.target.value);
-    // setUserInput({
-    //     ...userInput,
-    //     enteredTitle: event.target.value,
-    // })
-    // setUserInput((prevState) => {
-    //     return {...prevState, enteredTitle: event.target.value};
-    // })
+    setEnteredTitle(event.target.value);   
   };
 
   const amountChangeHandler = (event) => {
     setEnteredAmount(event.target.value);
-    // setUserInput({
-    //     ...userInput,
-    //     enteredAmount: event.target.value,
-    // })
   };
 
   const dateChangeHandler = (event) => {
     setEnteredDate(event.target.value);
-    // setUserInput({
-    //     ...userInput,
-    //     enteredDate: event.target.value,
-    // })
   };
 
-  //Handler bersamaan dalam satu fungsi
-  // const inputChangeHandler = (identifier, value) => {
-  //     if(identifier === 'title'){
-  //         setEnteredTitle(value);
-  //     }else if(identifier === 'amount'){
-  //         setEnteredAmount(value);
-  //     }else{
-  //         setEnteredDate(value);
-  //     }
-  // }
 
   const submitHandler = (event) => {
     event.preventDefault();
